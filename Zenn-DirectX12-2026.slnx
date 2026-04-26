@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Zenn-DirectX12-2026/Zenn-DirectX12-2026.vcxproj" Id="79c69c29-ed88-4a1d-8201-d013ee7fe308" />
+</Solution>
