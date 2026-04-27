@@ -19,6 +19,12 @@
     <Filter Include="window">
       <UniqueIdentifier>{8d1d8b72-8ab7-4c48-aaa5-f390cc89b3ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX12">
+      <UniqueIdentifier>{a6c6fd56-5665-4cff-92ff-86771475da0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{678a7a97-2146-4dbb-a02b-f3fda0bdf53b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main\main.cpp">
@@ -27,10 +33,34 @@
     <ClCompile Include="..\window\window.cpp">
       <Filter>window</Filter>
     </ClCompile>
+    <ClCompile Include="..\main\Application.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Debug\Log.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Debug\Assert.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DXGI.cpp">
+      <Filter>DirectX12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
       <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DXGI.h">
+      <Filter>DirectX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\Application.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Debug\Log.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Debug\Assert.h">
+      <Filter>Debug</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

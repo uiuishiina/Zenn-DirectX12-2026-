@@ -1,9 +1,12 @@
 //	window.cpp
 
 #include"window.h"
-#include<Windows.h>
+#include"../Debug/Assert.h"
 
 namespace {
+	//	ウィンドウクラス名
+	const wchar_t* const CLASS_NAME = L"SampleWindowClass";
+
 	//	ウィンドウプロシージャ
 	LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 		switch (uMsg) {
@@ -16,13 +19,15 @@ namespace {
 	}
 }
 
-[[nodiscard]] bool window::create(HINSTANCE hInstance) {
+[[nodiscard]] bool window::create_window(HINSTANCE hInstance) {
+
+	hInstance_ = hInstance;
 
 	//	ウィンドウクラスの設定
     WNDCLASS wc{};
     wc.lpfnWndProc = WindowProc;
-    wc.hInstance = hInstance;
-	wc.lpszClassName = L"SampleWindowClass";
+    wc.hInstance = hInstance_;
+	wc.lpszClassName = CLASS_NAME;
     wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
 
@@ -40,7 +45,7 @@ namespace {
 		CW_USEDEFAULT, CW_USEDEFAULT, 1280, 720,	//	位置とサイズ
 		nullptr,				//	親ウィンドウ
 		nullptr,				//	メニューハンドル
-		hInstance,				//	インスタンスハンドル
+		hInstance_,				//	インスタンスハンドル
 		nullptr					//	追加パラメータ
 	);
 
@@ -55,6 +60,7 @@ namespace {
 }
 
 [[nodiscard]] HWND window::get_HWND() const noexcept {
+	ASSERT(hwnd_ != nullptr);	//	ウィンドウハンドルが有効であることを確認
 	return hwnd_;
 }
 
@@ -73,4 +79,3 @@ namespace {
 	}
 	return true;	//	常にループを続行する
 }
-

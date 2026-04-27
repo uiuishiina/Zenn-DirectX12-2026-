@@ -1,17 +1,13 @@
 //	main.cpp
-
-#include"../window/window.h"
-#include<Windows.h>
+#include"Application.h"	
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int) {
 
-	window win;
-	if (!win.create(hInstance)) {
+	//	アプリケーションインスタンスを作成し、初期化とメインループを実行
+	Application app;
+	if (!app.initialize_App(hInstance)) {
 		return -1;
 	}
-	while (win.message_loop()) {
-		//	ここでゲームの更新や描画を行う
-	}
-	//	ウィンドウが閉じられた後のクリーンアップ処理などがあればここに記述
+	app.run();
 	return 0;
 }

@@ -1,22 +1,21 @@
 #pragma once
 //	window.h
 
-//不透明ポインタ作成・・・WIndows APIを隠ぺいするための前方宣言
-struct HWND__;		//	HWND互換
-using HWND = HWND__*;
+#include<Windows.h>
 
-struct HINSTANCE__;	//	HINSTANCE互換
-using HINSTANCE = HINSTANCE__*;
+#define WIN32_LEAN_AND_MEAN	//	Windowsヘッダの軽量化
 
 //ウィンドウクラス
 class window final
 {
 	HWND hwnd_;		//	ウィンドウハンドル
+	HINSTANCE hInstance_;	//	インスタンスハンドル
 public:
+	//	コンストラクタとデストラクタ
 	window() = default;
 	~window() = default;
 
-	//コピー禁止,ムーブ禁止
+	//	コピー禁止,ムーブ禁止
 	window(const window&) = delete;
 	window& operator=(const window&) = delete;
 	window(const window&&) = delete;
@@ -25,7 +24,7 @@ public:
 	//@brief	ウィンドウの作成
 	//@param	hInstance	インスタンスハンドル
 	//@return	作成の成否
-	[[nodiscard]] bool create(HINSTANCE hInstance);
+	[[nodiscard]] bool create_window(HINSTANCE hInstance);
 
 	//@brief	ウィンドウハンドルの取得
 	//@return	ウィンドウハンドル
