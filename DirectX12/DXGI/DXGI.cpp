@@ -1,23 +1,13 @@
 // DXGI.cpp
 
 #include"DXGI.h"
-#include"../Debug/Log.h"
-#include"../Debug/Assert.h"
+#include"../../Debug/Log.h"
+#include"../../Debug/Assert.h"
 
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3d12.lib")
 
-
 namespace {
-	//	要求するD3D機能レベルのリスト...DirectX 12.2からDirectX 11.0までの機能レベルを指定
-	D3D_FEATURE_LEVEL levels[] = {
-	D3D_FEATURE_LEVEL_12_2,
-	D3D_FEATURE_LEVEL_12_1,
-	D3D_FEATURE_LEVEL_12_0,
-	D3D_FEATURE_LEVEL_11_1,
-	D3D_FEATURE_LEVEL_11_0
-	};
-
 	//	要求するGPUの優先度のリスト...高性能GPU、デフォルトGPU、最低消費電力GPUの順で指定	
 	DXGI_GPU_PREFERENCE preferences[] = {
 		DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE,	//	2
@@ -71,7 +61,7 @@ namespace {
 	//	要求するGPUの優先度のリストを順に試して、最初に見つかった適切なGPUを選択
 	for (const auto preference : preferences) {
 		adapter_ = select_adapter(preference);
-		if (adapter_.Get()) {
+		if (adapter_) {
 			LOG_INFO("Selected GPU with preference:	" + std::to_string(preference));
 			return true;
 		}
@@ -84,8 +74,7 @@ namespace {
 ComPtr<IDXGIAdapter4> DXGI::select_adapter(DXGI_GPU_PREFERENCE preference) {
 
 	// アダプタを列挙
-	for (int i = 0; ; ++i)
-	{
+	for (int i = 0; ; ++i) {
 		DXGI_ADAPTER_DESC1 desc{};
 		ComPtr<IDXGIAdapter4> dxgiAdapter{};
 
@@ -106,7 +95,6 @@ ComPtr<IDXGIAdapter4> DXGI::select_adapter(DXGI_GPU_PREFERENCE preference) {
 		return dxgiAdapter;
 	}
 
-	LOG_ERROR("Failed to select DXGI adapter.");
 	return nullptr;
 }
 

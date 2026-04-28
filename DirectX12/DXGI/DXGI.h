@@ -7,16 +7,17 @@
 
 using Microsoft::WRL::ComPtr;
 
+//	DXGIクラス
 class DXGI final
 {
-	ComPtr<IDXGIFactory6> factory_;
-	ComPtr<IDXGIAdapter4> adapter_;
+	ComPtr<IDXGIFactory6> factory_;	//DXGIファクトリー
+	ComPtr<IDXGIAdapter4> adapter_;	//DXGIアダプター
 
-	//@brief	DXGIファクトリーの作成
+	//@brief	DXGIファクトリー作成
 	//@return	作成の成否
 	[[nodiscard]] bool create_factory();
 
-	//@brief	DXGIアダプターの選択
+	//@brief	DXGIアダプター選択
 	//@return	選択の成否
 	[[nodiscard]] bool resolve_adapter();
 
@@ -35,7 +36,7 @@ public:
 	DXGI(const DXGI&&) = delete;
 	DXGI&& operator=(const DXGI&&) = delete;
 
-	//@brief	DXGIの初期化
+	//@brief	DXGI初期化
 	//@return	初期化の成否
 	[[nodiscard]] bool initialize_DXGI();
 

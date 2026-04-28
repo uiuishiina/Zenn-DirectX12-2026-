@@ -142,16 +142,26 @@
   <ItemGroup>
     <ClCompile Include="..\Debug\Assert.cpp" />
     <ClCompile Include="..\Debug\Log.cpp" />
-    <ClCompile Include="..\DirectX12\DXGI.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandAllocator.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandList.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandQueue.cpp" />
+    <ClCompile Include="..\DirectX12\DXGI\Device.cpp" />
+    <ClCompile Include="..\DirectX12\DXGI\DXGI.cpp" />
     <ClCompile Include="..\main\Application.cpp" />
     <ClCompile Include="..\main\main.cpp" />
+    <ClCompile Include="..\main\Renderer.cpp" />
     <ClCompile Include="..\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Debug\Assert.h" />
     <ClInclude Include="..\Debug\Log.h" />
-    <ClInclude Include="..\DirectX12\DXGI.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandAllocator.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandList.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandQueue.h" />
+    <ClInclude Include="..\DirectX12\DXGI\Device.h" />
+    <ClInclude Include="..\DirectX12\DXGI\DXGI.h" />
     <ClInclude Include="..\main\Application.h" />
+    <ClInclude Include="..\main\Renderer.h" />
     <ClInclude Include="..\window\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,15 +1,15 @@
 #pragma once
 // Application.h
 
-#include "../window/window.h"
-#include"../DirectX12/DXGI.h"
+#include"Renderer.h"
+#include"../window/window.h"
 #include<memory>
 
 // アプリケーションクラス
 class Application final
 {
 	std::unique_ptr<window> window_;	//	ウィンドウクラスインスタンス
-	std::unique_ptr<DXGI>	dxgi_;		//	DXGIクラスインスタンス
+	std::unique_ptr<Renderer> renderer_;	//	レンダラークラスインスタンス
 public:
 	Application() = default;
 	~Application() = default;

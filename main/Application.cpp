@@ -4,25 +4,15 @@
 #include"../Debug/Log.h"
 #include"../Debug/Assert.h"
 
-//	エラー処理マクロ・・・条件式がfalseのときにfalseを返す
-#define Create_Check(bool_expr) \
-	do { \
-		if (!(bool_expr)) { \
-			LOG_ERROR(#bool_expr); \
-			return false; \
-		} \
-	} while (0)
-
-
 [[nodiscard]] bool Application::initialize_App(HINSTANCE hInstance) {
 	
 	//	ウィンドウクラスのインスタンスを作成し、ウィンドウを初期化
 	window_ = std::make_unique<window>();
 	Create_Check(window_->create_window(hInstance));
 
-	//	DXGIの初期化
-	dxgi_ = std::make_unique<DXGI>();
-	Create_Check(dxgi_->initialize_DXGI());
+	//	レンダラークラスのインスタンスを作成し、初期化
+	renderer_ = std::make_unique<Renderer>();
+	Create_Check(renderer_->initialize_Renderer());
 
 	LOG_INFO("Application initialized successfully.");
 	return true;
@@ -31,6 +21,7 @@
 void Application::run() {
 	//	ウィンドウのメッセージループを実行
 	while (window_->message_loop()) {
-		//	ここにゲームロジックや描画処理を追加
+		//	レンダラーの更新と描画処理を実行
+		renderer_->render_update();
 	}
 }

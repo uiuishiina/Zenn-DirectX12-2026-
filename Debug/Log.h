@@ -17,6 +17,16 @@
 #define LOG_HRESULT(hr) ((void)0)
 #endif // _DEBUG
 
+//	エラー処理マクロ・・・条件式がfalseのときにfalseを返す
+#define Create_Check(bool_expr) \
+	do { \
+		if (!(bool_expr)) { \
+			LOG_ERROR(#bool_expr); \
+			return false; \
+		} \
+	} while (0)
+
+
 namespace Log {
 	// ログレベル列挙型
 	enum class LogLevel {

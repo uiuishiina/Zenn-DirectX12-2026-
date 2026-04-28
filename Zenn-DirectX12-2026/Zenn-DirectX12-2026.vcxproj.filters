@@ -25,6 +25,12 @@
     <Filter Include="Debug">
       <UniqueIdentifier>{678a7a97-2146-4dbb-a02b-f3fda0bdf53b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX12\DXGI">
+      <UniqueIdentifier>{2bbe377b-4801-4d9b-8942-d2cdf20a4305}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX12\DirectX3D">
+      <UniqueIdentifier>{ee003157-9f9e-4e5b-9ec2-8783e0673826}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main\main.cpp">
@@ -42,16 +48,28 @@
     <ClCompile Include="..\Debug\Assert.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
-    <ClCompile Include="..\DirectX12\DXGI.cpp">
-      <Filter>DirectX12</Filter>
+    <ClCompile Include="..\main\Renderer.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DXGI\Device.cpp">
+      <Filter>DirectX12\DXGI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DXGI\DXGI.cpp">
+      <Filter>DirectX12\DXGI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandQueue.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandAllocator.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\CommandList.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
       <Filter>window</Filter>
-    </ClInclude>
-    <ClInclude Include="..\DirectX12\DXGI.h">
-      <Filter>DirectX12</Filter>
     </ClInclude>
     <ClInclude Include="..\main\Application.h">
       <Filter>main</Filter>
@@ -61,6 +79,24 @@
     </ClInclude>
     <ClInclude Include="..\Debug\Assert.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\main\Renderer.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandQueue.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DXGI\Device.h">
+      <Filter>DirectX12\DXGI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DXGI\DXGI.h">
+      <Filter>DirectX12\DXGI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandAllocator.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\CommandList.h">
+      <Filter>DirectX12\DirectX3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
