@@ -35,6 +35,7 @@
 		LOG_HRESULT(hr);
 		return false;
 	}
+
 	return true;
 }
 

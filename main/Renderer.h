@@ -22,20 +22,20 @@ class Fence;
 // レンダラークラス
 class Renderer final
 {
-	const int FRAME_BUFFER_COUNT = 2;	//	フレームバッファの数
+	const int FRAME_BUFFER_COUNT = 3;	//	フレームバッファの数
 	std::vector<UINT64> frameFenceValue_;	//	各フレームのフェンスの値
 
 	std::unique_ptr<DXGI>	dxgi_;		//	DXGIクラスインスタンス
 	std::unique_ptr<Device> device_;	//	D3D12デバイスクラスインスタンス
 
-	std::unique_ptr<CommandQueue> command_queue_;	//	コマンドキュークラスインスタンス
-	std::unique_ptr<CommandAllocator> command_allocator_;	//	コマンドアロケータクラスインスタンス
-	std::unique_ptr<CommandList> command_list_;	//	コマンドリストクラスインスタンス
+	std::unique_ptr<CommandQueue>		command_queue_;		//	コマンドキュークラスインスタンス
+	std::unique_ptr<CommandAllocator>	command_allocator_;	//	コマンドアロケータクラスインスタンス
+	std::unique_ptr<CommandList>		command_list_;		//	コマンドリストクラスインスタンス
 
-	std::unique_ptr<SwapChain> swapchain_;	//	スワップチェーンクラスインスタンス
-	std::unique_ptr<DescriptorHeap> rtv_heap_;	//	ディスクリプタヒープクラスインスタンス
-	std::unique_ptr<RenderTarget> render_target_;	//	レンダーターゲットクラスインスタンス
-	std::unique_ptr<Fence> fence_;	//	フェンスクラスインスタンス
+	std::unique_ptr<SwapChain>			swapchain_;			//	スワップチェーンクラスインスタンス
+	std::unique_ptr<DescriptorHeap>		rtv_heap_;			//	RTV用ディスクリプタヒープクラスインスタンス
+	std::unique_ptr<RenderTarget>		render_target_;		//	レンダーターゲットクラスインスタンス
+	std::unique_ptr<Fence>				fence_;				//	フェンスクラスインスタンス
 public:
 	//	コンストラクタとデストラクタ
 	Renderer();
