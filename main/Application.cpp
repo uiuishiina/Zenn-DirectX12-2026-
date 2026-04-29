@@ -12,7 +12,7 @@
 
 	//	レンダラークラスのインスタンスを作成し、初期化
 	renderer_ = std::make_unique<Renderer>();
-	Create_Check(renderer_->initialize_Renderer());
+	Create_Check(renderer_->initialize_Renderer(window_->get_HWND()));
 
 	LOG_INFO("Application initialized successfully.");
 	return true;
@@ -24,4 +24,7 @@ void Application::run() {
 		//	レンダラーの更新と描画処理を実行
 		renderer_->render_update();
 	}
+
+	//	アプリケーション終了前のクリーンアップ処理が必要な場合はここに追加
+	renderer_->render_end();
 }

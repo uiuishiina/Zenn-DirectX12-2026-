@@ -5,6 +5,8 @@
 #include"../../Debug/Assert.h"
 
 [[nodiscard]] bool CommandList::create_command_list(ID3D12Device* device, ID3D12CommandAllocator* allocator) {
+
+	//	コマンドリストの作成
 	const auto hr = device->CreateCommandList(
 		0,						//	ノードマスク
 		D3D12_COMMAND_LIST_TYPE_DIRECT,	//	コマンドリストのタイプ
@@ -16,6 +18,8 @@
 		LOG_HRESULT(hr);
 		return false;
 	}
+
+	command_list_->Close(); // コマンドリストは作成後にクローズする必要がある
 	return true;
 }
 

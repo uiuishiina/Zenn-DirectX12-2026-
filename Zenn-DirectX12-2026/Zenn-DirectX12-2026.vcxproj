@@ -145,6 +145,10 @@
     <ClCompile Include="..\DirectX12\DirectX3D\CommandAllocator.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\CommandList.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\CommandQueue.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\DescriptorHeap.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\Fence.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\RenderTarget.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\SwapChain.cpp" />
     <ClCompile Include="..\DirectX12\DXGI\Device.cpp" />
     <ClCompile Include="..\DirectX12\DXGI\DXGI.cpp" />
     <ClCompile Include="..\main\Application.cpp" />
@@ -158,6 +162,10 @@
     <ClInclude Include="..\DirectX12\DirectX3D\CommandAllocator.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\CommandList.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\CommandQueue.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\DescriptorHeap.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\Fence.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\RenderTarget.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\SwapChain.h" />
     <ClInclude Include="..\DirectX12\DXGI\Device.h" />
     <ClInclude Include="..\DirectX12\DXGI\DXGI.h" />
     <ClInclude Include="..\main\Application.h" />

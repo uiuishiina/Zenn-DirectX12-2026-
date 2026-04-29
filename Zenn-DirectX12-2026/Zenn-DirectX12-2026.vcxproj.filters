@@ -66,6 +66,18 @@
     <ClCompile Include="..\DirectX12\DirectX3D\CommandList.cpp">
       <Filter>DirectX12\DirectX3D</Filter>
     </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\SwapChain.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\RenderTarget.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\DescriptorHeap.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\Fence.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -96,6 +108,18 @@
       <Filter>DirectX12\DirectX3D</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX12\DirectX3D\CommandList.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\SwapChain.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\RenderTarget.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\DescriptorHeap.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\Fence.h">
       <Filter>DirectX12\DirectX3D</Filter>
     </ClInclude>
   </ItemGroup>

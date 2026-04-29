@@ -10,7 +10,7 @@ using Microsoft::WRL::ComPtr;
 //	コマンドアロケータクラス
 class CommandAllocator final
 {
-	std::vector<ComPtr<ID3D12CommandAllocator>> command_allocator_;	//	コマンドアロケータ
+	std::vector<ComPtr<ID3D12CommandAllocator>> command_allocators_;	//	コマンドアロケータ
 public:
 	//	コンストラクタとデストラクタ
 	CommandAllocator() = default;
@@ -23,9 +23,9 @@ public:
 
 	//@brief	コマンドアロケータ作成
 	//@param	device	コマンドアロケータを作成するD3D12デバイス
-	//@param	index	作成するコマンドアロケータのインデックス
+	//@param	buffer_size	作成するコマンドアロケータのバッファサイズ
 	//@return	作成の成否
-	[[nodiscard]] bool create_command_allocator(ID3D12Device* device, const size_t& index);
+	[[nodiscard]] bool create_command_allocator(ID3D12Device* device, const size_t& buffer_size);
 
 	//@brief	コマンドアロケータ取得
 	//@param	index 取得するコマンドアロケータのインデックス
