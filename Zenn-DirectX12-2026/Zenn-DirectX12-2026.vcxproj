@@ -147,7 +147,11 @@
     <ClCompile Include="..\DirectX12\DirectX3D\CommandQueue.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\DescriptorHeap.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\Fence.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\PiplineState.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\Polygon.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\RenderTarget.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\RootSignature.cpp" />
+    <ClCompile Include="..\DirectX12\DirectX3D\ShaderCompiler.cpp" />
     <ClCompile Include="..\DirectX12\DirectX3D\SwapChain.cpp" />
     <ClCompile Include="..\DirectX12\DXGI\Device.cpp" />
     <ClCompile Include="..\DirectX12\DXGI\DXGI.cpp" />
@@ -164,7 +168,11 @@
     <ClInclude Include="..\DirectX12\DirectX3D\CommandQueue.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\DescriptorHeap.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\Fence.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\PiplineState.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\Polygon.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\RenderTarget.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\RootSignature.h" />
+    <ClInclude Include="..\DirectX12\DirectX3D\ShaderCompiler.h" />
     <ClInclude Include="..\DirectX12\DirectX3D\SwapChain.h" />
     <ClInclude Include="..\DirectX12\DXGI\Device.h" />
     <ClInclude Include="..\DirectX12\DXGI\DXGI.h" />

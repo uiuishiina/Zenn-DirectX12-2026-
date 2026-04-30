@@ -12,6 +12,10 @@
 #include"../DirectX12/DirectX3D/DescriptorHeap.h"
 #include"../DirectX12/DirectX3D/RenderTarget.h"
 #include"../DirectX12/DirectX3D/Fence.h"
+#include"../DirectX12/DirectX3D/ShaderCompiler.h"
+#include"../DirectX12/DirectX3D/Polygon.h"
+#include"../DirectX12/DirectX3D/RootSignature.h"
+#include"../DirectX12/DirectX3D/PiplineState.h"
 
 #include"Renderer.h"
 
@@ -76,6 +80,25 @@ namespace {
 	Create_Check(fence_->create_fence(device_->get_device()));
 	frameFenceValue_.resize(FRAME_BUFFER_COUNT, 0);
 
+	//	シェーダーコンパイラクラスのインスタンスを作成し、初期化
+	vs_shader = std::make_unique<ShaderCompiler>();
+	Create_Check(vs_shader->compile_shader(L"../DirectX12/HLSLshader/VertexShader.hlsl", "vsMain", "vs_5_0"));
+	ps_shader = std::make_unique<ShaderCompiler>();
+	Create_Check(ps_shader->compile_shader(L"../DirectX12/HLSLshader/PixelShader.hlsl", "psMain", "ps_5_0"));
+
+	//	ポリゴンクラスのインスタンスを作成し、初期化
+	polygon_ = std::make_unique<PolygonBase>();
+	Create_Check(polygon_->initialize_Polygon(device_->get_device()));
+
+	//	ルートシグネチャクラスのインスタンスを作成し、初期化
+	root_signature_ = std::make_unique<RootSignature>();
+	Create_Check(root_signature_->create_root_signature(device_->get_device()));
+
+	//	パイプラインステートクラスのインスタンスを作成し、初期化	
+	pipline_state_ = std::make_unique<PiplineState>();
+	Create_Check(pipline_state_->create_pipline_state(device_->get_device(), root_signature_->get_root_signature(), vs_shader->get_shader_blob(), ps_shader->get_shader_blob()));
+
+
 	return true; // レンダラーの初期化に成功した場合はtrueを返す
 }
 
@@ -102,8 +125,33 @@ void Renderer::render_update() {
 	command_list_->get_command_list()->OMSetRenderTargets(1, handles, false, nullptr);
 
 	// レンダーターゲットのクリア
-	const float clearColor[] = { 1.0f, 1.0f, 0.0f, 1.0f };  // 赤色でクリア
+	const float clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };  // 黒でクリア
 	command_list_->get_command_list()->ClearRenderTargetView(handles[0], clearColor, 0, nullptr);
+
+	// パイプラインステートとルートシグネチャの設定
+	command_list_->get_command_list()->SetPipelineState(pipline_state_->get_pipline_state());
+	command_list_->get_command_list()->SetGraphicsRootSignature(root_signature_->get_root_signature());
+
+	// ビューポート設定
+	D3D12_VIEWPORT viewport{};
+	viewport.TopLeftX = 0.0f;
+	viewport.TopLeftY = 0.0f;
+	viewport.Width = 1280.0f;
+	viewport.Height = 720.0f;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+	command_list_->get_command_list()->RSSetViewports(1, &viewport);
+
+	// シザー矩形設定
+	D3D12_RECT scissorRect{};
+	scissorRect.left = 0;
+	scissorRect.top = 0;
+	scissorRect.right = 1280;
+	scissorRect.bottom = 720;
+	command_list_->get_command_list()->RSSetScissorRects(1, &scissorRect);
+
+	// ポリゴンの描画
+	polygon_->draw_polygon(command_list_->get_command_list());
 
 	// リソースバリアでレンダーターゲットを RenderTarget から Present へ変更
 	auto rtToP = resource_Barrier(render_target_->get_render_target(backBufferIndex), D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATE_PRESENT);

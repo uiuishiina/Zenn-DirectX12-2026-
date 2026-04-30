@@ -31,6 +31,9 @@
     <Filter Include="DirectX12\DirectX3D">
       <UniqueIdentifier>{ee003157-9f9e-4e5b-9ec2-8783e0673826}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DirectX12\HLSLshader">
+      <UniqueIdentifier>{83ca481b-5601-409f-b8f2-0dd6d03168b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main\main.cpp">
@@ -78,6 +81,18 @@
     <ClCompile Include="..\DirectX12\DirectX3D\Fence.cpp">
       <Filter>DirectX12\DirectX3D</Filter>
     </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\ShaderCompiler.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\Polygon.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\RootSignature.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\DirectX12\DirectX3D\PiplineState.cpp">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\window\window.h">
@@ -120,6 +135,18 @@
       <Filter>DirectX12\DirectX3D</Filter>
     </ClInclude>
     <ClInclude Include="..\DirectX12\DirectX3D\Fence.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\ShaderCompiler.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\Polygon.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\RootSignature.h">
+      <Filter>DirectX12\DirectX3D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\DirectX12\DirectX3D\PiplineState.h">
       <Filter>DirectX12\DirectX3D</Filter>
     </ClInclude>
   </ItemGroup>

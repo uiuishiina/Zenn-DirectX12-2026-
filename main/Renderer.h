@@ -18,6 +18,10 @@ class SwapChain;
 class DescriptorHeap;
 class RenderTarget;
 class Fence;
+class ShaderCompiler;
+class PolygonBase;
+class RootSignature;
+class PiplineState;
 
 // レンダラークラス
 class Renderer final
@@ -36,6 +40,11 @@ class Renderer final
 	std::unique_ptr<DescriptorHeap>		rtv_heap_;			//	RTV用ディスクリプタヒープクラスインスタンス
 	std::unique_ptr<RenderTarget>		render_target_;		//	レンダーターゲットクラスインスタンス
 	std::unique_ptr<Fence>				fence_;				//	フェンスクラスインスタンス
+	std::unique_ptr<ShaderCompiler>		vs_shader;			//	シェーダーコンパイラクラスインスタンス
+	std::unique_ptr<ShaderCompiler>		ps_shader;			//	シェーダーコンパイラクラスインスタンス
+	std::unique_ptr<PolygonBase>		polygon_;			//	ポリゴンクラスインスタンス
+	std::unique_ptr<RootSignature>		root_signature_;	//	ルートシグネチャクラスインスタンス
+	std::unique_ptr<PiplineState>		pipline_state_;		//	パイプラインステートクラスインスタンス
 public:
 	//	コンストラクタとデストラクタ
 	Renderer();
